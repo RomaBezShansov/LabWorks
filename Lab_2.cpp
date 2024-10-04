@@ -19,19 +19,19 @@ int main()
     i2.a = 5; //Вписать в подпеременные значения 5 и 7
     i2.b = 7;
 
-    std::cout << i2.a << std::endl;
+    std::cout << i2.a << std::endl; //Выводит на экран 5 и 7
     std::cout << i2.b << std::endl;
 
     StructWithArray s = { };
-    s.arr[0] = 10;
+    s.arr[0] = 10; // Первый элемент массива 10 
 
     StructWithArray s1 = { };
-    s1.arr[0] = 15;
+    s1.arr[0] = 15; // Второй элемент массива 15 
 
-    StructWithArray* sPointer = &s;
-    sPointer->arr[0] = 20;
+    StructWithArray* sPointer = &s; // Указатель sPointer на s
+    sPointer->arr[0] = 20;// По указателю sPointer перейти на элемент массива 0 и вписывает 20
 
-    std::cout << s.arr[0] << std::endl;
+    std::cout << s.arr[0] << std::endl; //Выводит на экран указатель s со значением 20
     s.arr[0] = 25;
 
     std::cout << s.arr[0] << std::endl;
