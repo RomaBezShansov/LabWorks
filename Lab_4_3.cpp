@@ -3,26 +3,20 @@
 #include <array>
 #include <span>
 
-void product(std::span<int> inputOutput, std::span<int> coefficients)
+int product(std::span<int> inputOutput, std::span<int> coefficients)
 {
-    for (size_t index = 0; index < inputOutput.size(); index++)
+    for (size_t i = 0; i < coefficients.size(); i++)
     {
-        int result = inputOutput[index] * coefficients[index];
-        int result = InputOutput[index];
+        inputOutput[i] *= coefficients[i];
+        
     }
-    std::cout << InputOutput[0] << std::endl;
-    std::cout << InputOutput[1] << std::endl;
-    std::cout << InputOutput[2] << std::endl;
-    std::cout << InputOutput[3] << std::endl;
+    return 0;
 }
-
 
 int main()
 {
-    int inputOutput[4] = { 2,4,6,8 };
-    int coefficients[4] = { 2,4,6,8 };
-    
-    
+    int inputOutput[] = { 1,2,3,4 };
+    int coefficients[] = { 1,2,3,4 };
     product(inputOutput, coefficients);
 
 }
