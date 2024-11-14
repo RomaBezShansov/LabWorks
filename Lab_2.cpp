@@ -1,41 +1,47 @@
 #include <string.h>
 #include <iostream>
 
-struct TwoInts //Обьявление структуры  котороая группирует две переменные
+struct TwoInts //РћР±СЊСЏРІР»РµРЅРёРµ СЃС‚СЂСѓРєС‚СѓСЂС‹  РєРѕС‚РѕСЂР°СЏ РіСЂСѓРїРїРёСЂСѓРµС‚ РґРІРµ РїРµСЂРµРјРµРЅРЅС‹Рµ
 {
-    int a; // Подпеременные  
+    int a; // РџРѕРґРїРµСЂРµРјРµРЅРЅС‹Рµ  
     int b;
 };
 
 struct StructWithArray
 {
     int arr[4]; 
-    int* someNumber; //Указатель 
+    int* someNumber; //РЈРєР°Р·Р°С‚РµР»СЊ 
 };
 
 int main()
 {
-    TwoInts i2 = { };
-    i2.a = 5; //Вписать в подпеременные значения 5 и 7
+    TwoInts i2 = { 5, 7 };
+    i2.a = 5; //Р’РїРёСЃР°С‚СЊ РІ РїРѕРґРїРµСЂРµРјРµРЅРЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ 5 Рё 7
     i2.b = 7;
 
-    std::cout << i2.a << std::endl; //Выводит на экран 5 и 7
+    std::cout << i2.a << std::endl; //Р’С‹РІРѕРґРёС‚ РЅР° СЌРєСЂР°РЅ 5 Рё 7
     std::cout << i2.b << std::endl;
 
-    StructWithArray s = { };
-    s.arr[0] = 10; // Первый элемент массива 10 
+    StructWithArray s = { 
+        // {1,2,3,4},
+        // &i2.a,
+    };
+    s.arr[0] = 10; // РџРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ РјР°СЃСЃРёРІР° 10 
 
     StructWithArray s1 = { };
-    s1.arr[0] = 15; // Второй элемент массива 15 
+    s1.arr[1] = 15; // Р’С‚РѕСЂРѕР№ СЌР»РµРјРµРЅС‚ РјР°СЃСЃРёРІР° 15 
 
-    StructWithArray* sPointer = &s; // Указатель sPointer на s
-    sPointer->arr[0] = 20;// По указателю sPointer перейти на элемент массива 0 и вписывает 20
+    StructWithArray* sPointer = &s; // РЈРєР°Р·Р°С‚РµР»СЊ sPointer РЅР° s
+    sPointer->arr[0] = 20;// РџРѕ СѓРєР°Р·Р°С‚РµР»СЋ sPointer РїРµСЂРµР№С‚Рё РЅР° СЌР»РµРјРµРЅС‚ РјР°СЃСЃРёРІР° 0 Рё РІРїРёСЃС‹РІР°РµС‚ 20
 
-    std::cout << s.arr[0] << std::endl; //Выводит на экран указатель s со значением 20
+    (*sPointer).arr[0] = 20;
+
+
+    std::cout << s.arr[0] << std::endl; //Р’С‹РІРѕРґРёС‚ РЅР° СЌРєСЂР°РЅ СѓРєР°Р·Р°С‚РµР»СЊ s СЃРѕ Р·РЅР°С‡РµРЅРёРµРј 20
     s.arr[0] = 25;
 
     std::cout << s.arr[0] << std::endl;
-    sPointer->arr[0] = 30; // По указателю sPointer перейти на элемент массива 0 и вписывает 30
+    sPointer->arr[0] = 30; // РџРѕ СѓРєР°Р·Р°С‚РµР»СЋ sPointer РїРµСЂРµР№С‚Рё РЅР° СЌР»РµРјРµРЅС‚ РјР°СЃСЃРёРІР° 0 Рё РІРїРёСЃС‹РІР°РµС‚ 30
     std::cout << s.arr[0] << std::endl;
 
     sPointer = &s1;
@@ -48,11 +54,11 @@ int main()
     structArray[1].someNumber = &structArray[0].arr[3];
 
     sPointer = &s;
-    int* pointer = &sPointer->arr[3];
-    s.arr[3] = 72;
+    ((*sPointer).arr[3])=72;
+    int* pointer = &((*sPointer).arr[3]);
     std::cout << *pointer;
 
     StructWithArray memory;
-    memset(&memory, 0, sizeof(memory)); //Заполняет память переменной memory нулями
+    memset(&memory, 0, sizeof(memory)); //Р—Р°РїРѕР»РЅСЏРµС‚ РїР°РјСЏС‚СЊ РїРµСЂРµРјРµРЅРЅРѕР№ memory РЅСѓР»СЏРјРё
     return 0;
 }
