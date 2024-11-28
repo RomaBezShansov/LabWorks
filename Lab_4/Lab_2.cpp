@@ -3,7 +3,6 @@
 int main()
 {
     struct fruits {
-
         int apples;
         int pears;
         int oranges;
