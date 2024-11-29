@@ -7,7 +7,7 @@ class HeapInt
 
 public:
     // 3
-    inline HeapInt(int val) : heapValue(new int{ val }){}
+    inline HeapInt(int val) : heapValue(new int{ val }){} 
 
     inline ~HeapInt()
     {
@@ -26,3 +26,5 @@ public:
     void operator=(const HeapInt& hello);
     void operator=(HeapInt&& hello);
 };
+
+
