@@ -40,8 +40,18 @@ public:
 // Файл main.cpp
 #include "HeapInt.h"
 
+void f(HeapInt p)
+{
+
+}
 void constructors()
 {
+    HeapInt t{5};
+    f(t);
+
+    f({5});
+    f(5);
+
     HeapInt a{5}; // 8 
     HeapInt b{a}; // 9
     HeapInt c{std::move(a)}; // 10
@@ -121,6 +131,10 @@ HeapInt::HeapInt(int val) : heapValue(new int{ val }){}
     HeapInt e = std::move(b); // 12 Перемещение
 
 Как запретить синтаксис на (11-12)?
+
+Использовать explicit 
+explicit  inline HeapInt(int val) : heapValue(new int{ val }){} 
+
 Удалить соответсвующие конструкторы 
 
     HeapInt(const HeapInt& hello); // 7 Конструктор копирования
