@@ -12,7 +12,22 @@ HeapInt::HeapInt(HeapInt&& other) noexcept
     other.heapValue = nullptr;
 }
 
-void HeapInt::operator=(const HeapInt& hello)
-{
-    
+void HeapInt::operator=(const HeapInt& other) {
+ 
+    if (heapValue == nullptr)
+    {
+        heapValue = new int{ *other.heapValue };
+    }
+    else
+    {
+        *heapValue = *other.heapValue;
+    }
+}
+
+
+void HeapInt::operator=(HeapInt&& other) {
+
+    delete heapValue;
+    heapValue = other.heapValue;  
+    other.heapValue = nullptr;  
 }

@@ -8,6 +8,7 @@ class HeapInt
 public:
     // 3
     inline HeapInt(int val) : heapValue(new int{ val }){} 
+    // inline HeapInt() : HeapInt(0){} 
 
     inline ~HeapInt()
     {
@@ -28,3 +29,23 @@ public:
 };
 
 
+class HeapInt
+{
+
+    inline HeapInt(int val);
+};
+
+HeapInt::HeapInt(int val)
+{
+    // Определение конструктора вне класса
+}
+
+class HeapInt
+{
+    void operator=(const HeapInt& other);
+};
+
+void HeapInt::operator=(const HeapInt& other)
+{
+    // Определение оператора вне класса
+}
